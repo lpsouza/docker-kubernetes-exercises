@@ -1,0 +1,16 @@
+{
+  "name": "docker-lab2-node-app",
+  "version": "1.0.0",
+  "description": "A simple Node.js web application for Docker training",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "docker",
+    "node",
+    "lab"
+  ],
+  "author": "",
+  "license": "ISC"
+}
