@@ -61,7 +61,7 @@ docker exec -it nginx-lab bash
 Inside the container, modify the default Nginx welcome page:
 
 ```bash
-echo "Hello from TargetTrust Docker Lab!" > /usr/share/nginx/html/index.html
+echo "Hello from Docker Lab!" > /usr/share/nginx/html/index.html
 ```
 
 Exit the container session:
@@ -73,7 +73,7 @@ exit
 Alternatively, you can run the modification command directly from your host system without entering the interactive shell:
 
 ```bash
-docker exec nginx-lab sh -c 'echo "Hello from TargetTrust Docker Lab!" > /usr/share/nginx/html/index.html'
+docker exec nginx-lab sh -c 'echo "Hello from Docker Lab!" > /usr/share/nginx/html/index.html'
 ```
 
 Verify that the changes were applied successfully:
@@ -82,7 +82,7 @@ Verify that the changes were applied successfully:
 curl http://localhost:8080
 ```
 
-The output should display `Hello from TargetTrust Docker Lab!`.
+The output should display `Hello from Docker Lab!`.
 
 ### 4. Inspect Container Logs and Resource Usage
 
