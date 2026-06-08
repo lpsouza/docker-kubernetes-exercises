@@ -56,6 +56,31 @@ Expected response output format:
 
 Subsequent curl commands will increment the `"hits"` count.
 
+## Inspecting Redis Data
+
+To verify that the counter is being stored and updated directly inside Redis, you can query the database using the Redis Command Line Interface (`redis-cli`) within the running container.
+
+Run a single command to retrieve the current value of the `hits` key:
+
+```bash
+docker compose exec redis redis-cli get hits
+```
+
+Or connect to the interactive shell of `redis-cli`:
+
+```bash
+docker compose exec -it redis redis-cli
+```
+
+Inside the interactive terminal, query the key:
+
+```text
+127.0.0.1:6379> GET hits
+"1"
+```
+
+Type `exit` to close the CLI session.
+
 ## Scaling the Web Service
 
 To scale the web service to handle more traffic, Docker Compose allows you to spin up multiple instances of a service.
