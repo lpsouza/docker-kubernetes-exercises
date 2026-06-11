@@ -55,74 +55,45 @@ winget install -e --id Kubernetes.kubectl
 
 ### Setting Up a Local Cluster
 
-For these labs, you can use either `minikube` or `kind` to run a local cluster.
+For these labs, you need access to a Kubernetes cluster. Follow the instructions below based on your operating system.
 
-#### Option A: minikube (Recommended for beginners)
+#### Linux (Using K3s)
 
-`minikube` runs a single-node Kubernetes cluster inside a container or VM.
+`k3s` is a highly lightweight, fully compliant Kubernetes distribution. It is the recommended option for Linux environments.
 
-##### Installing minikube
+##### Installation
 
-* **Linux**:
+1. Install K3s:
 
-  ```bash
-  curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-  sudo install minikube-linux-amd64 /usr/local/bin/minikube
-  ```
+   ```bash
+   curl -sfL https://get.k3s.io | sh -
+   ```
 
-* **macOS**:
+2. Configure non-root access for `kubectl` (optional but recommended):
 
-  ```bash
-  brew install minikube
-  ```
+   ```bash
+   mkdir -p ~/.kube
+   sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
+   sudo chown $USER:$USER ~/.kube/config
+   chmod 600 ~/.kube/config
+   export KUBECONFIG=~/.kube/config
+   ```
 
-* **Windows**:
+#### macOS and Windows (Using Docker Desktop)
 
-  ```cmd
-  winget install -e --id Kubernetes.minikube
-  ```
+If you already have Docker Desktop installed, you can enable its built-in single-node Kubernetes cluster.
 
-##### Starting minikube
+##### Enabling Kubernetes
 
-Once installed, start your cluster using the Docker driver (make sure Docker is running):
+1. Open the **Docker Desktop Settings** (click the gear icon in the top right corner).
+2. Select **Kubernetes** in the sidebar.
+3. Check the **Enable Kubernetes** box.
+4. Click **Apply & restart** to confirm. Docker Desktop will automatically download and start the Kubernetes cluster components.
+5. Once the status indicator in the bottom-left corner turns green, verify that the active context is configured correctly:
 
-```bash
-minikube start --driver=docker
-```
-
-#### Option B: kind (Kubernetes in Docker)
-
-`kind` is a tool for running local Kubernetes clusters using Docker container "nodes".
-
-##### Installing kind
-
-* **Linux**:
-
-  ```bash
-  curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
-  chmod +x ./kind
-  sudo mv ./kind /usr/local/bin/kind
-  ```
-
-* **macOS**:
-
-  ```bash
-  brew install kind
-  ```
-
-* **Windows**:
-
-  ```cmd
-  winget install -e --id Kubernetes.kind
-  ```
-
-##### Starting kind
-
-Create a local cluster:
-
-```bash
-kind create cluster
-```
+   ```bash
+   kubectl config use-context docker-desktop
+   ```
 
 ---
 
