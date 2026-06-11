@@ -127,6 +127,18 @@ Deploy the Ingress resource:
 kubectl apply -f ingress.yaml
 ```
 
+> [!IMPORTANT]
+> **Ingress Controller Requirement**:
+>
+> * **K3s (Linux)**: Includes **Traefik** pre-installed as the default Ingress Controller, which automatically binds to ports `80`/`443` on the host. It works out of the box.
+> * **Docker Desktop (macOS/Windows)**: Does **not** include an Ingress Controller by default. To make Ingress route traffic, you must install the official NGINX Ingress Controller first by running:
+>
+>   ```bash
+>   kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+>   ```
+>
+>   *Wait for the NGINX Ingress controller pods to be fully ready before proceeding.*
+
 #### Configuring Local DNS Resolution
 
 To access the domain `node-app.local` from your host machine, you must map the domain to your local host IP (`127.0.0.1`).
