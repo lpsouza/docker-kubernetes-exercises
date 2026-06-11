@@ -15,9 +15,9 @@ docker-kubernetes-exercises/
 │   └── lab3/          # Service Orchestration (Compose, Redis, Scaling)
 ├── kubernetes/
 │   ├── README.md      # Kubernetes Overview & Installation Guide
-│   ├── lab4/          # Local Container Registry (Push/Pull Local Setup)
-│   ├── lab5/          # Kubernetes Deployments (Namespaces, Resource Limits)
-│   └── lab6/          # Services and Troubleshooting (ClusterIP, Diagnostic Probes)
+│   ├── registry-setup/# Local Container Registry (Push/Pull Local Setup)
+│   ├── lab4/          # Kubernetes Deployments (Namespaces, Resource Limits)
+│   └── lab5/          # Services and Troubleshooting (ClusterIP, Diagnostic Probes)
 └── cheatsheet.md      # Docker & Kubernetes Command Cheat Sheet
 ```
 
@@ -35,9 +35,9 @@ A handy [Docker & Kubernetes Cheat Sheet](cheatsheet.md) is available at the roo
 
 ### Kubernetes Labs
 
-- **[Lab 4: Setting Up a Local Container Registry](kubernetes/lab4/README.md)**: Set up a local private registry container, build/tag/push the Node.js application, and configure Kubernetes to pull images from an insecure local HTTP endpoint.
-- **[Lab 5: Deployments in Multi-Tenant Environments](kubernetes/lab5/README.md)**: Deploy your containerized web application to a shared Kubernetes cluster. Learn how to work within isolated namespaces, set CPU/Memory limits to prevent resource starvation, configure readiness/liveness probes, and dynamically scale replica counts.
-- **[Lab 6: Service Routing and Troubleshooting](kubernetes/lab6/README.md)**: Explore Kubernetes networking and debug real-world issues. You will expose deployments internally using `ClusterIP` services, test pod-to-service connectivity, and diagnose an intentionally broken deployment using troubleshooting tools (`kubectl describe`, logs, and events).
+- **[Registry Setup: Local Container Registry](kubernetes/registry-setup/README.md)**: Optional pre-setup. Run a local container registry to push your application image and configure Kubernetes to pull from it, simulating production pipelines.
+- **[Lab 4: Deployments in Multi-Tenant Environments](kubernetes/lab4/README.md)**: Deploy your containerized web application to a shared Kubernetes cluster. Learn how to work within isolated namespaces, set CPU/Memory limits to prevent resource starvation, configure readiness/liveness probes, and dynamically scale replica counts.
+- **[Lab 5: Service Routing and Troubleshooting](kubernetes/lab5/README.md)**: Explore Kubernetes networking and debug real-world issues. You will expose deployments internally using `ClusterIP` services, test pod-to-service connectivity, and diagnose an intentionally broken deployment using troubleshooting tools (`kubectl describe`, logs, and events).
 
 ## Getting Started
 
