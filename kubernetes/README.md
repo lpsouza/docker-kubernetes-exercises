@@ -7,6 +7,7 @@ This directory contains a series of hands-on exercises designed to teach you the
 * **[Registry Setup: Local Container Registry](registry-setup/README.md)**: Optional pre-setup. Run a local container registry to push your application image and configure Kubernetes to pull from it, simulating production pipelines.
 * **[Lab 4: Kubernetes Deployments in Multi-Tenant Environments](lab4/README.md)**: Deploy your first application on a shared cluster, configure namespaces, resource limits, liveness/readiness probes, and scale the application.
 * **[Lab 5: Kubernetes Networking and Troubleshooting](lab5/README.md)**: Expose applications internally using a `ClusterIP` Service, test connectivity, deploy a broken application release, and use diagnostic commands to fix port mismatches.
+* **[Lab 6: Package Management with Helm](lab6/README.md)**: Install Helm on your system, add the Prometheus community chart repository, deploy the `kube-prometheus-stack` monitoring system, and access the Grafana dashboard.
 
 For a quick command reference, see the [Docker & Kubernetes Cheat Sheet](../cheatsheet.md).
 
@@ -16,7 +17,7 @@ To run these labs, you must have the Kubernetes command-line tool (`kubectl`) an
 
 ### Installing kubectl CLI
 
-#### Linux
+#### Linux (kubectl)
 
 1. Download the latest kubectl release:
 
@@ -36,7 +37,7 @@ To run these labs, you must have the Kubernetes command-line tool (`kubectl`) an
    kubectl version --client
    ```
 
-#### macOS
+#### macOS (kubectl)
 
 Install kubectl using Homebrew:
 
@@ -44,12 +45,52 @@ Install kubectl using Homebrew:
 brew install kubectl
 ```
 
-#### Windows
+#### Windows (kubectl)
 
 Install kubectl using winget:
 
 ```cmd
 winget install -e --id Kubernetes.kubectl
+```
+
+*Restart your command prompt or terminal after installation.*
+
+---
+
+### Installing Helm CLI
+
+Helm is the package manager for Kubernetes. It allows you to easily deploy complex applications (called charts) with a single command.
+
+#### Linux (Helm)
+
+1. Download and run the official Helm installation script:
+
+   ```bash
+   curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+   chmod 700 get_helm.sh
+   ./get_helm.sh
+   ```
+
+2. Verify the installation:
+
+   ```bash
+   helm version
+   ```
+
+#### macOS (Helm)
+
+Install Helm using Homebrew:
+
+```bash
+brew install helm
+```
+
+#### Windows (Helm)
+
+Install Helm using winget:
+
+```cmd
+winget install -e --id Helm.Helm
 ```
 
 *Restart your command prompt or terminal after installation.*
