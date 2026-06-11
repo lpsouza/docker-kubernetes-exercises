@@ -18,7 +18,8 @@ docker-kubernetes-exercises/
 │   ├── registry-setup/# Local Container Registry (Push/Pull Local Setup)
 │   ├── lab4/          # Kubernetes Deployments (Namespaces, Resource Limits)
 │   ├── lab5/          # Services and Troubleshooting (ClusterIP, Diagnostic Probes)
-│   └── lab6/          # Package Management with Helm (Grafana/Prometheus)
+│   ├── lab6/          # Package Management with Helm (Grafana/Prometheus)
+│   └── extra-lab/     # Storage, ConfigMaps, Secrets, Ingress (Dynamic Setup)
 └── cheatsheet.md      # Docker & Kubernetes Command Cheat Sheet
 ```
 
@@ -40,6 +41,7 @@ A handy [Docker & Kubernetes Cheat Sheet](cheatsheet.md) is available at the roo
 - **[Lab 4: Deployments in Multi-Tenant Environments](kubernetes/lab4/README.md)**: Deploy your containerized web application to a shared Kubernetes cluster. Learn how to work within isolated namespaces, set CPU/Memory limits to prevent resource starvation, configure readiness/liveness probes, and dynamically scale replica counts.
 - **[Lab 5: Service Routing and Troubleshooting](kubernetes/lab5/README.md)**: Explore Kubernetes networking and debug real-world issues. You will expose deployments internally using `ClusterIP` services, test pod-to-service connectivity, and diagnose an intentionally broken deployment using troubleshooting tools (`kubectl describe`, logs, and events).
 - **[Lab 6: Package Management with Helm](kubernetes/lab6/README.md)**: Install Helm on your system, deploy the `kube-prometheus-stack` monitoring system (Prometheus & Grafana) using Helm charts, and access the live cluster metrics dashboard.
+- **[Extra Lab: Persistent Storage, ConfigMaps, Secrets, and Ingress](kubernetes/extra-lab/README.md)**: Deploy the Node.js + Redis multi-container application on Kubernetes. Learn to decouple configuration (ConfigMaps & Secrets), configure data persistence via PVC, and route domain traffic using Ingress.
 
 ## Getting Started
 

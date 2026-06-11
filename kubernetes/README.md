@@ -8,6 +8,7 @@ This directory contains a series of hands-on exercises designed to teach you the
 * **[Lab 4: Kubernetes Deployments in Multi-Tenant Environments](lab4/README.md)**: Deploy your first application on a shared cluster, configure namespaces, resource limits, liveness/readiness probes, and scale the application.
 * **[Lab 5: Kubernetes Networking and Troubleshooting](lab5/README.md)**: Expose applications internally using a `ClusterIP` Service, test connectivity, deploy a broken application release, and use diagnostic commands to fix port mismatches.
 * **[Lab 6: Package Management with Helm](lab6/README.md)**: Install Helm on your system, add the Prometheus community chart repository, deploy the `kube-prometheus-stack` monitoring system, and access the Grafana dashboard.
+* **[Extra Lab: Persistent Storage, ConfigMaps, Secrets, and Ingress](extra-lab/README.md)**: Deploy the Node.js + Redis multi-container application on Kubernetes. Learn to decouple configuration, configure data persistence via PVC, and route domain traffic using Ingress.
 
 For a quick command reference, see the [Docker & Kubernetes Cheat Sheet](../cheatsheet.md).
 
