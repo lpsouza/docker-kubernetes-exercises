@@ -12,7 +12,7 @@ For a quick command reference, see the [Docker & Kubernetes Cheat Sheet](../chea
 
 ## Prerequisites Installation Guide
 
-To run these labs, you must have the Kubernetes command-line tool (`kubectl`) and a local Kubernetes cluster (such as `minikube` or `kind`) installed on your system.
+To run these labs, you must have the Kubernetes command-line tool (`kubectl`) and a local Kubernetes cluster (such as `K3s` or `Docker Desktop`) installed on your system.
 
 ### Installing kubectl CLI
 
