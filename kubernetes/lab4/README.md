@@ -6,9 +6,8 @@ This lab guides you through deploying a containerized application to a shared Ku
 
 Before beginning, ensure that you have:
 
-* Access to a Kubernetes cluster.
-* `kubectl` CLI installed on your local host.
-* The application image `node-secure-app:1.0.0` loaded or accessible by the cluster.
+* Access to a Kubernetes cluster and the `kubectl` CLI installed on your local host. For setup instructions, refer to the [Kubernetes Installation Guide](../README.md).
+* The application image `node-secure-app:1.0.0` loaded or accessible by the cluster (built in [Docker Lab 2](../../docker/lab2/README.md)).
 
 ## Steps
 

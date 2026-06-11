@@ -4,7 +4,7 @@ This lab focuses on Kubernetes networking concepts and essential troubleshooting
 
 ## Prerequisites
 
-Ensure that you have completed Lab 4 and have the `node-secure-app` deployment running in your namespace.
+Ensure that you have completed [Lab 4](../lab4/README.md) and have the `node-secure-app` deployment running in your namespace.
 
 ## Steps
 

@@ -16,7 +16,7 @@ These services are integrated using:
 
 ## Prerequisites
 
-Ensure that you have Docker and Docker Compose (v2 or higher) installed on your system.
+Ensure that you have Docker and Docker Compose (v2 or higher) installed on your system. For installation instructions, refer to the [Docker Installation Guide](../README.md).
 
 ## How to Start the Environment
 

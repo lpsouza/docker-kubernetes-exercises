@@ -7,17 +7,21 @@ This repository contains a series of progressive, hands-on labs designed to teac
 The exercises are organized into two primary sections: Docker and Kubernetes. Each folder represents a dedicated laboratory module with its own configuration files and detailed guides.
 
 ```text
-/home/lpsouza/projects/docker-kubernetes-exercises
+docker-kubernetes-exercises/
 ├── docker/
+│   ├── README.md      # Docker Overview & Installation Guide
 │   ├── lab1/          # Docker CLI Basics (Nginx, Port mapping, Exec)
 │   ├── lab2/          # Node.js Web App Containerization (Dockerfile Sec)
 │   └── lab3/          # Service Orchestration (Compose, Redis, Scaling)
 └── kubernetes/
+    ├── README.md      # Kubernetes Overview & Installation Guide
     ├── lab4/          # Kubernetes Deployments (Namespaces, Resource Limits)
     └── lab5/          # Services and Troubleshooting (ClusterIP, Diagnostic Probes)
 ```
 
 ## Lab Overview
+
+Before starting the labs, make sure to set up the necessary tools. Refer to the [Docker Installation Guide](docker/README.md) and [Kubernetes Installation Guide](kubernetes/README.md) for step-by-step instructions on setting up prerequisites for your operating system.
 
 ### Docker Labs
 

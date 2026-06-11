@@ -4,7 +4,7 @@ This hands-on lab guides you through the fundamental Docker CLI commands. You wi
 
 ## Prerequisites
 
-Ensure that you have Docker installed and running on your local machine.
+Ensure that you have Docker installed and running on your local machine. For installation instructions, refer to the [Docker Installation Guide](../README.md).
 
 ## Steps
 
