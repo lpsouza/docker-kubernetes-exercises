@@ -69,7 +69,7 @@ kubectl apply -f deployment-broken.yaml
 Check the status of the new pods:
 
 ```bash
-kubectl get pods -l app=node-broken-app
+kubectl get pods -l app=node-secure-app
 ```
 
 You will notice that the pods remain in a `Running` state but showing `0/1` ready (they never become ready to receive traffic).
@@ -83,7 +83,7 @@ Use Kubernetes diagnostic commands to troubleshoot the deployment failure.
 Inspect the pod events to check for failure messages:
 
 ```bash
-kubectl describe pod -l app=node-broken-app
+kubectl describe pod -l app=node-secure-app
 ```
 
 Look at the bottom **Events** section. You should see warning events similar to:
@@ -95,7 +95,7 @@ Look at the bottom **Events** section. You should see warning events similar to:
 Check if the application inside the container is outputting any startup errors:
 
 ```bash
-kubectl logs -l app=node-broken-app
+kubectl logs -l app=node-secure-app
 ```
 
 The logs show:
@@ -125,7 +125,7 @@ kubectl apply -f deployment-broken.yaml
 Verify that the pods successfully transition to `1/1` ready:
 
 ```bash
-kubectl get pods -l app=node-broken-app
+kubectl get pods -l app=node-secure-app
 ```
 
 ### 6. Cleanup
