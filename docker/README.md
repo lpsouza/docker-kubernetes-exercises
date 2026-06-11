@@ -12,40 +12,18 @@ This directory contains a series of hands-on exercises designed to teach you the
 
 To run these labs, you must have Docker Engine and Docker Compose installed. Follow the guides below for your operating system.
 
-### Linux (Ubuntu/Debian)
+### Linux
 
-1. Update your package index and install required packages:
+Docker provides a convenience script to install Docker Engine on Linux systems. This is the recommended method for development and testing environments.
 
-   ```bash
-   sudo apt-get update
-   sudo apt-get install -y ca-certificates curl gnupg
-   ```
-
-2. Add Docker's official GPG key:
+1. Download and run the official Docker installation script:
 
    ```bash
-   sudo install -m 0755 -d /etc/apt/keyrings
-   curl -fsSL https://download.github.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-   sudo chmod a+r /etc/apt/keyrings/docker.gpg
+   curl -fsSL https://get.docker.com -o get-docker.sh
+   sudo sh get-docker.sh
    ```
 
-3. Set up the repository:
-
-   ```bash
-   echo \
-     "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-     $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-     sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-   ```
-
-4. Install Docker Engine, CLI, and Docker Compose:
-
-   ```bash
-   sudo apt-get update
-   sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-   ```
-
-5. (Recommended) Post-installation steps to manage Docker as a non-root user:
+2. (Recommended) Post-installation steps to manage Docker as a non-root user:
 
    ```bash
    sudo groupadd docker
