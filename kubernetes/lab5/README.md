@@ -58,12 +58,12 @@ curl http://localhost:8080
 
 ### 3. Deploy the Broken Application (Troubleshooting Challenge)
 
-Deploy the `deployment-broken.yaml` manifest. This represents a common failure scenario where a new release fails to start or pass health checks.
+Deploy the `deployment.yaml` manifest. This represents a common failure scenario where a new release fails to start or pass health checks.
 
 Apply the broken deployment manifest:
 
 ```bash
-kubectl apply -f deployment-broken.yaml
+kubectl apply -f deployment.yaml
 ```
 
 Check the status of the new pods:
@@ -114,12 +114,12 @@ This means there is a port mismatch in the deployment configuration. Kubelet is 
 
 ### 5. Fix the Deployment
 
-To fix the deployment, edit `deployment-broken.yaml` and update the `containerPort`, `readinessProbe`, and `livenessProbe` ports to use `3000` instead of `8080`.
+To fix the deployment, edit `deployment.yaml` and update the `containerPort`, `readinessProbe`, and `livenessProbe` ports to use `3000` instead of `8080`.
 
 Once updated, apply the changes:
 
 ```bash
-kubectl apply -f deployment-broken.yaml
+kubectl apply -f deployment.yaml
 ```
 
 Verify that the pods successfully transition to `1/1` ready:
@@ -134,5 +134,5 @@ Remove all resources created during this lab:
 
 ```bash
 kubectl delete -f service.yaml
-kubectl delete -f deployment-broken.yaml
+kubectl delete -f deployment.yaml
 ```
