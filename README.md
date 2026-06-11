@@ -21,14 +21,14 @@ The exercises are organized into two primary sections: Docker and Kubernetes. Ea
 
 ### Docker Labs
 
-- **[Lab 1: Docker CLI Basics](file:///home/lpsouza/projects/docker-kubernetes-exercises/docker/lab1/README.md)**: Master basic command-line interactions. You will pull the official Nginx image, run containers in detached mode, map ports, pass environment variables, modify active containers through bash sessions, and analyze system logs/resource metrics.
-- **[Lab 2: Node.js App Containerization](file:///home/lpsouza/projects/docker-kubernetes-exercises/docker/lab2/README.md)**: Build a secure, production-ready image for a Node.js web application. This lab emphasizes security best practices, including using lightweight alpine base images, implementing non-root user accounts inside the container, and optimizing layer caching.
-- **[Lab 3: Service Orchestration with Compose](file:///home/lpsouza/projects/docker-kubernetes-exercises/docker/lab3/README.md)**: Transition from single container management to multi-container orchestration. You will configure Docker Compose to launch a Node.js web app linked to a Redis database, utilizing custom bridge networks, named volumes for data persistence, and port ranges to scale services without conflicts.
+- **[Lab 1: Docker CLI Basics](docker/lab1/README.md)**: Master basic command-line interactions. You will pull the official Nginx image, run containers in detached mode, map ports, pass environment variables, modify active containers through bash sessions, and analyze system logs/resource metrics.
+- **[Lab 2: Node.js App Containerization](docker/lab2/README.md)**: Build a secure, production-ready image for a Node.js web application. This lab emphasizes security best practices, including using lightweight alpine base images, implementing non-root user accounts inside the container, and optimizing layer caching.
+- **[Lab 3: Service Orchestration with Compose](docker/lab3/README.md)**: Transition from single container management to multi-container orchestration. You will configure Docker Compose to launch a Node.js web app linked to a Redis database, utilizing custom bridge networks, named volumes for data persistence, and port ranges to scale services without conflicts.
 
 ### Kubernetes Labs
 
-- **[Lab 4: Deployments in Multi-Tenant Environments](file:///home/lpsouza/projects/docker-kubernetes-exercises/kubernetes/lab4/README.md)**: Deploy your containerized web application to a shared Kubernetes cluster. Learn how to work within isolated namespaces, set CPU/Memory limits to prevent resource starvation, configure readiness/liveness probes, and dynamically scale replica counts.
-- **[Lab 5: Service Routing and Troubleshooting](file:///home/lpsouza/projects/docker-kubernetes-exercises/kubernetes/lab5/README.md)**: Explore Kubernetes networking and debug real-world issues. You will expose deployments internally using `ClusterIP` services, test pod-to-service connectivity, and diagnose an intentionally broken deployment using troubleshooting tools (`kubectl describe`, logs, and events).
+- **[Lab 4: Deployments in Multi-Tenant Environments](kubernetes/lab4/README.md)**: Deploy your containerized web application to a shared Kubernetes cluster. Learn how to work within isolated namespaces, set CPU/Memory limits to prevent resource starvation, configure readiness/liveness probes, and dynamically scale replica counts.
+- **[Lab 5: Service Routing and Troubleshooting](kubernetes/lab5/README.md)**: Explore Kubernetes networking and debug real-world issues. You will expose deployments internally using `ClusterIP` services, test pod-to-service connectivity, and diagnose an intentionally broken deployment using troubleshooting tools (`kubectl describe`, logs, and events).
 
 ## Getting Started
 
