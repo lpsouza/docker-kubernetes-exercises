@@ -7,6 +7,8 @@ This directory contains a series of hands-on exercises designed to teach you the
 * **[Lab 4: Kubernetes Deployments in Multi-Tenant Environments](lab4/README.md)**: Deploy your first application on a shared cluster, configure namespaces, resource limits, liveness/readiness probes, and scale the application.
 * **[Lab 5: Kubernetes Networking and Troubleshooting](lab5/README.md)**: Expose applications internally using a `ClusterIP` Service, test connectivity, deploy a broken application release, and use diagnostic commands to fix port mismatches.
 
+For a quick command reference, see the [Docker & Kubernetes Cheat Sheet](../cheatsheet.md).
+
 ## Prerequisites Installation Guide
 
 To run these labs, you must have the Kubernetes command-line tool (`kubectl`) and a local Kubernetes cluster (such as `minikube` or `kind`) installed on your system.

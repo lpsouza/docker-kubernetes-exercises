@@ -8,6 +8,8 @@ This directory contains a series of hands-on exercises designed to teach you the
 - **[Lab 2: Node.js Web Application Containerization](lab2/README.md)**: Learn how to write a secure, multi-stage production Dockerfile to containerize a Node.js web application.
 - **[Lab 3: Orchestrating Services with Docker Compose](lab3/README.md)**: Connect multiple containers (a web application and a Redis database) over a custom bridge network with persistent data volumes.
 
+For a quick command reference, see the [Docker & Kubernetes Cheat Sheet](../cheatsheet.md).
+
 ## Prerequisites Installation Guide
 
 To run these labs, you must have Docker Engine and Docker Compose installed. Follow the guides below for your operating system.

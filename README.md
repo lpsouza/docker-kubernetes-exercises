@@ -13,15 +13,18 @@ docker-kubernetes-exercises/
 │   ├── lab1/          # Docker CLI Basics (Nginx, Port mapping, Exec)
 │   ├── lab2/          # Node.js Web App Containerization (Dockerfile Sec)
 │   └── lab3/          # Service Orchestration (Compose, Redis, Scaling)
-└── kubernetes/
-    ├── README.md      # Kubernetes Overview & Installation Guide
-    ├── lab4/          # Kubernetes Deployments (Namespaces, Resource Limits)
-    └── lab5/          # Services and Troubleshooting (ClusterIP, Diagnostic Probes)
+├── kubernetes/
+│   ├── README.md      # Kubernetes Overview & Installation Guide
+│   ├── lab4/          # Kubernetes Deployments (Namespaces, Resource Limits)
+│   └── lab5/          # Services and Troubleshooting (ClusterIP, Diagnostic Probes)
+└── cheatsheet.md      # Docker & Kubernetes Command Cheat Sheet
 ```
 
 ## Lab Overview
 
 Before starting the labs, make sure to set up the necessary tools. Refer to the [Docker Installation Guide](docker/README.md) and [Kubernetes Installation Guide](kubernetes/README.md) for step-by-step instructions on setting up prerequisites for your operating system.
+
+A handy [Docker & Kubernetes Cheat Sheet](cheatsheet.md) is available at the root level to serve as a quick CLI reference while you work through the exercises.
 
 ### Docker Labs
 
