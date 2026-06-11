@@ -4,9 +4,9 @@ This directory contains a series of hands-on exercises designed to teach you the
 
 ## Lab Directory Structure
 
-* **[Lab 1: Docker CLI Basics](lab1/README.md)**: Master essential Docker CLI commands, run detached containers, implement port forwarding, configure environment variables, and manage container lifecycles.
-* **[Lab 2: Node.js Web Application Containerization](lab2/README.md)**: Learn how to write a secure, multi-stage production Dockerfile to containerize a Node.js web application.
-* **[Lab 3: Orchestrating Services with Docker Compose](lab3/README.md)**: Connect multiple containers (a web application and a Redis database) over a custom bridge network with persistent data volumes.
+- **[Lab 1: Docker CLI Basics](lab1/README.md)**: Master essential Docker CLI commands, run detached containers, implement port forwarding, configure environment variables, and manage container lifecycles.
+- **[Lab 2: Node.js Web Application Containerization](lab2/README.md)**: Learn how to write a secure, multi-stage production Dockerfile to containerize a Node.js web application.
+- **[Lab 3: Orchestrating Services with Docker Compose](lab3/README.md)**: Connect multiple containers (a web application and a Redis database) over a custom bridge network with persistent data volumes.
 
 ## Prerequisites Installation Guide
 
@@ -30,7 +30,7 @@ Docker provides a convenience script to install Docker Engine on Linux systems. 
    sudo usermod -aG docker $USER
    ```
 
-   *Log out and log back in for the changes to take effect.*
+   _Log out and log back in for the changes to take effect._
 
 ### macOS
 
@@ -65,5 +65,6 @@ docker compose version
 ```
 
 You should see output indicating the installed versions. For example:
+
 - `Docker version 24.0.7, build afdd53b`
 - `Docker Compose version v2.22.0`

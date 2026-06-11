@@ -61,18 +61,23 @@ For these labs, you can use either `minikube` or `kind` to run a local cluster.
 
 `minikube` runs a single-node Kubernetes cluster inside a container or VM.
 
-##### Installation
+##### Installing minikube
 
 * **Linux**:
+
   ```bash
   curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
   sudo install minikube-linux-amd64 /usr/local/bin/minikube
   ```
+
 * **macOS**:
+
   ```bash
   brew install minikube
   ```
+
 * **Windows**:
+
   ```cmd
   winget install -e --id Kubernetes.minikube
   ```
@@ -89,19 +94,24 @@ minikube start --driver=docker
 
 `kind` is a tool for running local Kubernetes clusters using Docker container "nodes".
 
-##### Installation
+##### Installing kind
 
 * **Linux**:
+
   ```bash
   curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
   chmod +x ./kind
   sudo mv ./kind /usr/local/bin/kind
   ```
+
 * **macOS**:
+
   ```bash
   brew install kind
   ```
+
 * **Windows**:
+
   ```cmd
   winget install -e --id Kubernetes.kind
   ```

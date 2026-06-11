@@ -88,7 +88,7 @@ kubectl describe pod -l app=node-secure-app
 
 Look at the bottom **Events** section. You should see warning events similar to:
 
-> Warning Unhealthy 11s (x3 over 21s) kubelet Readiness probe failed: Get "http://10.244.x.x:8080/health": dial tcp 10.244.x.x:8080: connect: connection refused
+> Warning Unhealthy 11s (x3 over 21s) kubelet Readiness probe failed: Get `http://10.244.x.x:8080/health`: dial tcp 10.244.x.x:8080: connect: connection refused
 
 #### Step B: Inspect Application Logs
 
