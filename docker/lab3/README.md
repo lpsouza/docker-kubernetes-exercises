@@ -6,13 +6,13 @@ This hands-on lab introduces Docker Compose to orchestrate multi-container appli
 
 The application stack is comprised of two core services:
 
-* **Web Service (`web`)**: A Node.js HTTP server running custom application code. It communicates with Redis to track visitors.
-* **Database Service (`redis`)**: An official Alpine-based Redis image serving as a key-value store.
+- **Web Service (`web`)**: A Node.js HTTP server running custom application code. It communicates with Redis to track visitors.
+- **Database Service (`redis`)**: An official Alpine-based Redis image serving as a key-value store.
 
 These services are integrated using:
 
-* **Custom Bridge Network (`app-network`)**: Restricts communication, ensuring only containers within the network can reach the Redis instance.
-* **Named Volume (`redis-data`)**: Mounts to `/data` in the Redis container to persist database state across container lifecycles.
+- **Custom Bridge Network (`app-network`)**: Restricts communication, ensuring only containers within the network can reach the Redis instance.
+- **Named Volume (`redis-data`)**: Mounts to `/data` in the Redis container to persist database state across container lifecycles.
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ curl http://localhost:3000
 Expected response output format:
 
 ```json
-{"status":"healthy","version":"2.0.0","hits":1}
+{ "status": "healthy", "version": "2.0.0", "hits": 1 }
 ```
 
 Subsequent curl commands will increment the `"hits"` count.

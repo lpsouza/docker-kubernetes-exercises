@@ -53,7 +53,7 @@ curl http://localhost:3000
 Expected output:
 
 ```json
-{"status":"healthy","version":"1.0.0"}
+{ "status": "healthy", "version": "1.0.0" }
 ```
 
 ## Cleaning Up
@@ -69,6 +69,6 @@ docker rm my-node-app
 
 This Dockerfile incorporates several security (Sec) and performance best practices:
 
-* **Minimal Base Image**: Uses `node:18-alpine` to reduce container attack surface and keep image size small.
-* **Non-Root User**: Runs the application under the built-in `node` user instead of `root` to prevent privilege escalation.
-* **Layer Caching**: Copies `package.json` and installs dependencies prior to copying the application code, maximizing build cache utilization.
+- **Minimal Base Image**: Uses `node:18-alpine` to reduce container attack surface and keep image size small.
+- **Non-Root User**: Runs the application under the built-in `node` user instead of `root` to prevent privilege escalation.
+- **Layer Caching**: Copies `package.json` and installs dependencies prior to copying the application code, maximizing build cache utilization.

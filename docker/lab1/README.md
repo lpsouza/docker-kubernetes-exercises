@@ -140,6 +140,6 @@ docker ps -a
 
 Here are common issues you might encounter and how to resolve them:
 
-* **Port 8080 is already in use**: If another process is using port `8080`, the container will fail to start. You can map Nginx to a different host port (e.g., `-p 8081:80`) or stop the conflict-causing service on the host.
-* **Docker daemon not running**: If you receive a connection error, verify that the Docker service is running on your host machine.
-* **Container name conflict**: If a container named `nginx-lab` already exists, Docker will report a conflict. Stop and remove the existing container using `docker rm nginx-lab` before retrying.
+- **Port 8080 is already in use**: If another process is using port `8080`, the container will fail to start. You can map Nginx to a different host port (e.g., `-p 8081:80`) or stop the conflict-causing service on the host.
+- **Docker daemon not running**: If you receive a connection error, verify that the Docker service is running on your host machine.
+- **Container name conflict**: If a container named `nginx-lab` already exists, Docker will report a conflict. Stop and remove the existing container using `docker rm nginx-lab` before retrying.

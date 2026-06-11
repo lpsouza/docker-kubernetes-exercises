@@ -88,7 +88,7 @@ kubectl describe pod -l app=node-broken-app
 
 Look at the bottom **Events** section. You should see warning events similar to:
 
-> Warning  Unhealthy  11s (x3 over 21s)  kubelet  Readiness probe failed: Get "http://10.244.x.x:8080/health": dial tcp 10.244.x.x:8080: connect: connection refused
+> Warning Unhealthy 11s (x3 over 21s) kubelet Readiness probe failed: Get "http://10.244.x.x:8080/health": dial tcp 10.244.x.x:8080: connect: connection refused
 
 #### Step B: Inspect Application Logs
 
@@ -106,6 +106,7 @@ The logs show:
 #### Step C: Analyze the Diagnostic Data
 
 Comparing the two findings:
+
 1. The **Readiness probe** is trying to connect to port `8080`.
 2. The **Application logs** indicate the server is listening on port `3000`.
 
