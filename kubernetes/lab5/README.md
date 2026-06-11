@@ -1,138 +1,110 @@
-# Lab 5: Kubernetes Networking and Troubleshooting
+# Lab 5: Kubernetes Deployments in Multi-Tenant Environments
 
-This lab focuses on Kubernetes networking concepts and essential troubleshooting workflows. You will expose your running application using a `ClusterIP` service, test internal connectivity, deploy an intentionally misconfigured application, and diagnose its failures using standard CLI tools.
+This lab guides you through deploying a containerized application to a shared Kubernetes cluster using dedicated namespaces. You will learn to manage Kubeconfig context, deploy an application with resource constraints and health checks, and scale the deployment dynamically.
 
 ## Prerequisites
 
-Ensure that you have completed [Lab 4](../lab4/README.md) and have the `node-secure-app` deployment running in your namespace.
+Before beginning, ensure that you have:
+
+* Access to a Kubernetes cluster and the `kubectl` CLI installed on your local host. For setup instructions, refer to the [Kubernetes Installation Guide](../README.md).
+* The application image `node-secure-app:1.0.0` pushed to your local container registry in [Lab 4](../lab4/README.md).
 
 ## Steps
 
-### 1. Expose the Deployment with a Service
+### 1. Configure Kubeconfig and Target Namespace
 
-Create a `ClusterIP` service to map internal traffic to your running pods.
+In a shared Kubernetes cluster, administrators assign separate namespaces to isolate student workloads.
 
-Apply the service manifest:
-
-```bash
-kubectl apply -f service.yaml
-```
-
-To verify the service is created and view its internal cluster IP:
+To configure your credentials securely, copy your assigned Kubeconfig file to the default location (`~/.kube/config`) or set the environment variable:
 
 ```bash
-kubectl get service node-secure-service
+export KUBECONFIG=/path/to/your/student-kubeconfig.yaml
 ```
 
-### 2. Test Internal Connectivity
-
-Since `ClusterIP` services are only accessible from within the cluster, you can test connectivity using one of the following methods.
-
-#### Method A: Using a Temporary Curl Pod
-
-Run a temporary container inside your namespace to curl the service's DNS name:
+To view your current context configurations:
 
 ```bash
-kubectl run curl-test \
-  --image=curlimages/curl \
-  --rm -it \
-  --restart=Never \
-  -- curl http://node-secure-service
+kubectl config get-contexts
 ```
 
-You should see the healthy status response from the Node.js application.
-
-#### Method B: Using Port-Forwarding
-
-Map the cluster service port to your local machine port:
+Switch to your assigned context and set your target namespace (e.g., `student-ns-01`) as the default context namespace:
 
 ```bash
-kubectl port-forward svc/node-secure-service 8080:80
+kubectl config set-context --current --namespace=student-ns-01
 ```
 
-In a separate terminal on your host machine, curl the local endpoint:
+Confirm that you are in the correct namespace:
 
 ```bash
-curl http://localhost:8080
+kubectl config view --minify | grep namespace
 ```
 
-### 3. Deploy the Broken Application (Troubleshooting Challenge)
+### 2. Apply the Deployment Manifest
 
-Deploy the `deployment.yaml` manifest. This represents a common failure scenario where a new release fails to start or pass health checks.
+Inspect the `deployment.yaml` manifest. Notice the resource limits, requests, and HTTP health probes.
 
-Apply the broken deployment manifest:
+Deploy the application to your dedicated namespace:
 
 ```bash
 kubectl apply -f deployment.yaml
 ```
 
-Check the status of the new pods:
+### 3. Verify Deployment Status
+
+Check the status of your pods in the current namespace:
 
 ```bash
-kubectl get pods -l app=node-secure-app
+kubectl get pods
 ```
 
-You will notice that the pods remain in a `Running` state but showing `0/1` ready (they never become ready to receive traffic).
+You should see 3 replicas spawning. Once the readiness probe succeeds, the status changes to `Running`.
 
-### 4. Diagnose the Issue
-
-Use Kubernetes diagnostic commands to troubleshoot the deployment failure.
-
-#### Step A: Check Resource Description and Events
-
-Inspect the pod events to check for failure messages:
+To view detailed information about the deployment:
 
 ```bash
-kubectl describe pod -l app=node-secure-app
+kubectl describe deployment node-secure-app
 ```
 
-Look at the bottom **Events** section. You should see warning events similar to:
-
-> Warning Unhealthy 11s (x3 over 21s) kubelet Readiness probe failed: Get `http://10.244.x.x:8080/health`: dial tcp 10.244.x.x:8080: connect: connection refused
-
-#### Step B: Inspect Application Logs
-
-Check if the application inside the container is outputting any startup errors:
+To inspect pod logs (substitute `<pod-name>` with one of your active pods):
 
 ```bash
-kubectl logs -l app=node-secure-app
+kubectl logs <pod-name>
 ```
 
-The logs show:
+### 4. Scale the Deployment Dynamically
 
-> Server is running and listening on port 3000
-> Application version set to: 1.0.0-broken
+If your application experiences traffic surges, you can scale the deployment size.
 
-#### Step C: Analyze the Diagnostic Data
-
-Comparing the two findings:
-
-1. The **Readiness probe** is trying to connect to port `8080`.
-2. The **Application logs** indicate the server is listening on port `3000`.
-
-This means there is a port mismatch in the deployment configuration. Kubelet is probing port `8080` which has nothing running on it, causing the probe to fail and keeping the pod unready.
-
-### 5. Fix the Deployment
-
-To fix the deployment, edit `deployment.yaml` and update the `containerPort`, `readinessProbe`, and `livenessProbe` ports to use `3000` instead of `8080`.
-
-Once updated, apply the changes:
+To scale the replica count from 3 to 5 via the CLI:
 
 ```bash
-kubectl apply -f deployment.yaml
+kubectl scale deployment node-secure-app --replicas=5
 ```
 
-Verify that the pods successfully transition to `1/1` ready:
+Verify that the new replicas are being created:
 
 ```bash
-kubectl get pods -l app=node-secure-app
+kubectl get pods -w
 ```
 
-### 6. Cleanup
+Press `Ctrl+C` to stop watching.
 
-Remove all resources created during this lab:
+To scale the application back down:
 
 ```bash
-kubectl delete -f service.yaml
+kubectl scale deployment node-secure-app --replicas=3
+```
+
+### 5. Cleanup
+
+Remove the deployment from your namespace to release cluster resources:
+
+```bash
 kubectl delete -f deployment.yaml
+```
+
+Verify that no resources remain:
+
+```bash
+kubectl get all
 ```

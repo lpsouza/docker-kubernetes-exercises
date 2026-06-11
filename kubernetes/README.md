@@ -4,8 +4,9 @@ This directory contains a series of hands-on exercises designed to teach you the
 
 ## Lab Directory Structure
 
-* **[Lab 4: Kubernetes Deployments in Multi-Tenant Environments](lab4/README.md)**: Deploy your first application on a shared cluster, configure namespaces, resource limits, liveness/readiness probes, and scale the application.
-* **[Lab 5: Kubernetes Networking and Troubleshooting](lab5/README.md)**: Expose applications internally using a `ClusterIP` Service, test connectivity, deploy a broken application release, and use diagnostic commands to fix port mismatches.
+* **[Lab 4: Setting Up a Local Container Registry](lab4/README.md)**: Set up a local private registry container, build/tag/push the Node.js application, and configure Kubernetes to pull images from an insecure local HTTP endpoint.
+* **[Lab 5: Kubernetes Deployments in Multi-Tenant Environments](lab5/README.md)**: Deploy your first application on a shared cluster, configure namespaces, resource limits, liveness/readiness probes, and scale the application.
+* **[Lab 6: Kubernetes Networking and Troubleshooting](lab6/README.md)**: Expose applications internally using a `ClusterIP` Service, test connectivity, deploy a broken application release, and use diagnostic commands to fix port mismatches.
 
 For a quick command reference, see the [Docker & Kubernetes Cheat Sheet](../cheatsheet.md).
 
