@@ -189,3 +189,65 @@ kubectl exec -it <pod-name> -- <command>
 ```bash
 kubectl port-forward svc/<service-name> <host-port>:<service-port>
 ```
+
+---
+
+## Helm CLI Cheat Sheet
+
+### Repository Management
+
+#### Add a chart repository
+
+```bash
+helm repo add <repo-name> <repo-url>
+```
+
+#### Update local repository cache
+
+```bash
+helm repo update
+```
+
+#### Search repositories for a keyword or chart
+
+```bash
+helm search repo <keyword>
+```
+
+### Release Management
+
+#### Install a chart as a release
+
+```bash
+helm install <release-name> <chart-name>
+```
+
+#### Install a chart with namespace creation
+
+```bash
+helm install <release-name> <chart-name> --namespace <namespace> --create-namespace
+```
+
+#### List installed releases in a namespace
+
+```bash
+helm list -n <namespace>
+```
+
+#### List installed releases across all namespaces
+
+```bash
+helm list -A
+```
+
+#### Upgrade an existing release
+
+```bash
+helm upgrade <release-name> <chart-name>
+```
+
+#### Uninstall a release
+
+```bash
+helm uninstall <release-name> -n <namespace>
+```
