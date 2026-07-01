@@ -31,7 +31,7 @@ async function startServer() {
         res.writeHead(200, { "Content-Type": "application/json" });
         res.end(
           JSON.stringify({
-            status: "saude ok",
+            status: "healthy",
             version: APP_VERSION,
             hits: hits,
           }),
