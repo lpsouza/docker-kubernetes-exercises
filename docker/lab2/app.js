@@ -15,7 +15,7 @@ const server = http.createServer((req, res) => {
 
     // Construct response JSON containing status and environment variable
     const responseData = {
-      status: "saude ok",
+      status: "healthy",
       version: APP_VERSION,
     };
 
