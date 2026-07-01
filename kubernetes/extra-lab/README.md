@@ -159,7 +159,7 @@ Now, open your web browser and navigate to: [http://node-app.local](http://node-
 You should see the JSON output with a visitor counter (hits):
 
 ```json
-{"status":"saude ok","version":"1.0.0-extra","hits":1}
+{"status":"healthy","version":"1.0.0-extra","hits":1}
 ```
 
 ### 7. Test Data Persistence
