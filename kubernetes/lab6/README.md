@@ -28,6 +28,12 @@ Update your local repository cache to retrieve the latest list of available char
 helm repo update
 ```
 
+Search the repository to see the list of available charts:
+
+```bash
+helm search repo prometheus-community
+```
+
 ### 2. Deploy the Monitoring Stack
 
 We will deploy the `kube-prometheus-stack` chart. This chart installs Prometheus (to collect metrics), Grafana (to visualize metrics), alert systems, and agents to collect node and state metrics.
