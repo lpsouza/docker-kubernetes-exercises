@@ -20,19 +20,55 @@ docker build -t node-secure-app:1.0.0 .
 
 To verify the image has been successfully created:
 
+**Linux / macOS (Bash):**
+
 ```bash
 docker images | grep node-secure-app
+```
+
+**Windows (PowerShell):**
+
+```powershell
+docker images | Select-String node-secure-app
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+docker images | findstr node-secure-app
 ```
 
 ## How to Run the Container
 
 Run the container using the newly created image. We will map port `3000` of the container to port `3000` on your host system and inject the `APP_VERSION` environment variable.
 
+**Linux / macOS (Bash):**
+
 ```bash
 docker run -d \
   -p 3000:3000 \
   --name my-node-app \
   -e APP_VERSION=1.0.0 \
+  node-secure-app:1.0.0
+```
+
+**Windows (PowerShell):**
+
+```powershell
+docker run -d `
+  -p 3000:3000 `
+  --name my-node-app `
+  -e APP_VERSION=1.0.0 `
+  node-secure-app:1.0.0
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+docker run -d ^
+  -p 3000:3000 ^
+  --name my-node-app ^
+  -e APP_VERSION=1.0.0 ^
   node-secure-app:1.0.0
 ```
 
@@ -46,8 +82,22 @@ docker ps
 
 Test the application response by sending an HTTP request to port 3000:
 
+**Linux / macOS (Bash / Zsh):**
+
 ```bash
 curl http://localhost:3000
+```
+
+**Windows (PowerShell):**
+
+```powershell
+Invoke-WebRequest -Uri http://localhost:3000
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+powershell -Command "Invoke-WebRequest -Uri http://localhost:3000"
 ```
 
 Expected output:

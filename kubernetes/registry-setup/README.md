@@ -32,11 +32,33 @@ Ensure that you have completed [Docker Lab 2](../../docker/lab2/README.md) and h
 
 Run the official Docker Registry (v2) image as a container. We will expose it on host port `5001` so it does not conflict with other potential services:
 
+**Linux / macOS (Bash):**
+
 ```bash
 docker run -d \
   -p 5001:5000 \
   --restart=always \
   --name local-registry \
+  registry:2
+```
+
+**Windows (PowerShell):**
+
+```powershell
+docker run -d `
+  -p 5001:5000 `
+  --restart=always `
+  --name local-registry `
+  registry:2
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+docker run -d ^
+  -p 5001:5000 ^
+  --restart=always ^
+  --name local-registry ^
   registry:2
 ```
 
@@ -52,15 +74,45 @@ To push an image to a private registry, you must tag it with the registry's host
 
 Navigate to the directory of **Docker Lab 2** and rebuild the secure Node.js application, tagging it with the registry host:
 
+**Linux / macOS (Bash):**
+
 ```bash
 cd ../../docker/lab2
 docker build -t localhost:5001/node-secure-app:1.0.0 .
 ```
 
+**Windows (PowerShell):**
+
+```powershell
+Set-Location ../../docker/lab2
+docker build -t localhost:5001/node-secure-app:1.0.0 .
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+cd ..\..\docker\lab2
+docker build -t localhost:5001/node-secure-app:1.0.0 .
+```
+
 Verify that the newly tagged image is listed in your local Docker engine:
+
+**Linux / macOS (Bash):**
 
 ```bash
 docker images | grep localhost:5001
+```
+
+**Windows (PowerShell):**
+
+```powershell
+docker images | Select-String localhost:5001
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+docker images | findstr localhost:5001
 ```
 
 ### 3. Push the Image to the Local Registry
@@ -112,10 +164,24 @@ Docker Desktop already automatically trusts registries exposed on `localhost` (s
 
 ### 5. Verify the Registry Content
 
-You can query the registry's HTTP API directly using `curl` to confirm the image was successfully pushed and is available for download:
+You can query the registry's HTTP API directly to confirm the image was successfully pushed and is available for download:
+
+**Linux / macOS (Bash / Zsh):**
 
 ```bash
 curl http://localhost:5001/v2/_catalog
+```
+
+**Windows (PowerShell):**
+
+```powershell
+Invoke-WebRequest -Uri http://localhost:5001/v2/_catalog
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+powershell -Command "Invoke-WebRequest -Uri http://localhost:5001/v2/_catalog"
 ```
 
 Expected output:
@@ -126,8 +192,22 @@ Expected output:
 
 Query the tag list for the `node-secure-app` repository:
 
+**Linux / macOS (Bash / Zsh):**
+
 ```bash
 curl http://localhost:5001/v2/node-secure-app/tags/list
+```
+
+**Windows (PowerShell):**
+
+```powershell
+Invoke-WebRequest -Uri http://localhost:5001/v2/node-secure-app/tags/list
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+powershell -Command "Invoke-WebRequest -Uri http://localhost:5001/v2/node-secure-app/tags/list"
 ```
 
 Expected output:

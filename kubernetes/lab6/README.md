@@ -40,9 +40,27 @@ We will deploy the `kube-prometheus-stack` chart. This chart installs Prometheus
 
 Install the chart in a dedicated namespace named `monitoring` (Helm will automatically create the namespace):
 
+**Linux / macOS (Bash):**
+
 ```bash
 helm install prometheus-stack prometheus-community/kube-prometheus-stack \
   --create-namespace \
+  --namespace monitoring
+```
+
+**Windows (PowerShell):**
+
+```powershell
+helm install prometheus-stack prometheus-community/kube-prometheus-stack `
+  --create-namespace `
+  --namespace monitoring
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+helm install prometheus-stack prometheus-community/kube-prometheus-stack ^
+  --create-namespace ^
   --namespace monitoring
 ```
 

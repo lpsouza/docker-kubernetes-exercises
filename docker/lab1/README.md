@@ -28,11 +28,33 @@ Look for `nginx` in the list of images.
 
 Start a new container from the Nginx image. The container must run in detached mode (`-d`), map host port `8080` to container port `80` (`-p`), define a custom name (`--name`), and inject a generic environment variable (`-e`).
 
+**Linux / macOS (Bash):**
+
 ```bash
 docker run -d \
   -p 8080:80 \
   --name nginx-lab \
   -e ENV_TYPE=development \
+  nginx:latest
+```
+
+**Windows (PowerShell):**
+
+```powershell
+docker run -d `
+  -p 8080:80 `
+  --name nginx-lab `
+  -e ENV_TYPE=development `
+  nginx:latest
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+docker run -d ^
+  -p 8080:80 ^
+  --name nginx-lab ^
+  -e ENV_TYPE=development ^
   nginx:latest
 ```
 
@@ -44,8 +66,22 @@ docker ps
 
 You can also test accessing the Nginx server by opening your web browser and navigating to `http://localhost:8080` or running the following command:
 
+**Linux / macOS (Bash / Zsh):**
+
 ```bash
 curl http://localhost:8080
+```
+
+**Windows (PowerShell):**
+
+```powershell
+Invoke-WebRequest -Uri http://localhost:8080
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+powershell -Command "Invoke-WebRequest -Uri http://localhost:8080"
 ```
 
 ### 3. Modify the Index Page Using Shell Access
@@ -72,14 +108,42 @@ exit
 
 Alternatively, you can run the modification command directly from your host system without entering the interactive shell:
 
+**Linux / macOS (Bash):**
+
 ```bash
 docker exec nginx-lab sh -c 'echo "Hello from Docker Lab!" > /usr/share/nginx/html/index.html'
 ```
 
+**Windows (PowerShell):**
+
+```powershell
+docker exec nginx-lab sh -c "echo 'Hello from Docker Lab!' > /usr/share/nginx/html/index.html"
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+docker exec nginx-lab sh -c "echo Hello from Docker Lab! > /usr/share/nginx/html/index.html"
+```
+
 Verify that the changes were applied successfully:
+
+**Linux / macOS (Bash / Zsh):**
 
 ```bash
 curl http://localhost:8080
+```
+
+**Windows (PowerShell):**
+
+```powershell
+Invoke-WebRequest -Uri http://localhost:8080
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+powershell -Command "Invoke-WebRequest -Uri http://localhost:8080"
 ```
 
 The output should display `Hello from Docker Lab!`.

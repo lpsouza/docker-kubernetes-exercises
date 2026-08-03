@@ -44,8 +44,22 @@ docker compose ps
 
 Send multiple HTTP requests to verify the hit counter increments:
 
+**Linux / macOS (Bash / Zsh):**
+
 ```bash
 curl http://localhost:3000
+```
+
+**Windows (PowerShell):**
+
+```powershell
+Invoke-WebRequest -Uri http://localhost:3000
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+powershell -Command "Invoke-WebRequest -Uri http://localhost:3000"
 ```
 
 Expected response output format:
@@ -54,7 +68,7 @@ Expected response output format:
 { "status": "healthy", "version": "2.0.0", "hits": 1 }
 ```
 
-Subsequent curl commands will increment the `"hits"` count.
+Subsequent requests will increment the `"hits"` count.
 
 ## Inspecting Redis Data
 
@@ -101,10 +115,28 @@ You will see three `web` containers bound to ports `3000`, `3001`, and `3002` re
 
 Test the new replicas:
 
+**Linux / macOS (Bash / Zsh):**
+
 ```bash
 curl http://localhost:3000
 curl http://localhost:3001
 curl http://localhost:3002
+```
+
+**Windows (PowerShell):**
+
+```powershell
+Invoke-WebRequest -Uri http://localhost:3000
+Invoke-WebRequest -Uri http://localhost:3001
+Invoke-WebRequest -Uri http://localhost:3002
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+powershell -Command "Invoke-WebRequest -Uri http://localhost:3000"
+powershell -Command "Invoke-WebRequest -Uri http://localhost:3001"
+powershell -Command "Invoke-WebRequest -Uri http://localhost:3002"
 ```
 
 All of them share the same backend Redis instance, showing a synchronized global counter.

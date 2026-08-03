@@ -50,10 +50,24 @@ Map the cluster service port to your local machine port:
 kubectl port-forward svc/node-secure-service 8080:80
 ```
 
-In a separate terminal on your host machine, curl the local endpoint:
+In a separate terminal on your host machine, send an HTTP request to the local endpoint:
+
+**Linux / macOS (Bash / Zsh):**
 
 ```bash
 curl http://localhost:8080
+```
+
+**Windows (PowerShell):**
+
+```powershell
+Invoke-WebRequest -Uri http://localhost:8080
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+powershell -Command "Invoke-WebRequest -Uri http://localhost:8080"
 ```
 
 ### 3. Deploy the Broken Application (Troubleshooting Challenge)

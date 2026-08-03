@@ -28,8 +28,24 @@ Before beginning, ensure that you have:
 
 Navigate to the directory of **Docker Lab 3** (which contains the code to connect to a Redis database) and build the image with a tag pointing to your local registry:
 
+**Linux / macOS (Bash):**
+
 ```bash
 cd ../../docker/lab3
+docker build -t localhost:5001/node-redis-app:1.0.0 .
+```
+
+**Windows (PowerShell):**
+
+```powershell
+Set-Location ../../docker/lab3
+docker build -t localhost:5001/node-redis-app:1.0.0 .
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+cd ..\..\docker\lab3
 docker build -t localhost:5001/node-redis-app:1.0.0 .
 ```
 
@@ -41,8 +57,22 @@ docker push localhost:5001/node-redis-app:1.0.0
 
 Verify that the image is available in the local registry catalog:
 
+**Linux / macOS (Bash / Zsh):**
+
 ```bash
 curl http://localhost:5001/v2/_catalog
+```
+
+**Windows (PowerShell):**
+
+```powershell
+Invoke-WebRequest -Uri http://localhost:5001/v2/_catalog
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+powershell -Command "Invoke-WebRequest -Uri http://localhost:5001/v2/_catalog"
 ```
 
 ### 2. Create the Configurations
@@ -51,8 +81,22 @@ We will use a **ConfigMap** to store general app configurations and a **Secret**
 
 Navigate back to the `extra-lab` directory:
 
+**Linux / macOS (Bash):**
+
 ```bash
 cd ../../kubernetes/extra-lab
+```
+
+**Windows (PowerShell):**
+
+```powershell
+Set-Location ../../kubernetes/extra-lab
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+cd ..\..\kubernetes\extra-lab
 ```
 
 Apply the ConfigMap and Secret manifests:

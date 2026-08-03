@@ -17,8 +17,22 @@ In a shared Kubernetes cluster, administrators assign separate namespaces to iso
 
 To configure your credentials securely, copy your assigned Kubeconfig file to the default location (`~/.kube/config`) or set the environment variable:
 
+**Linux / macOS (Bash):**
+
 ```bash
 export KUBECONFIG=/path/to/your/student-kubeconfig.yaml
+```
+
+**Windows (PowerShell):**
+
+```powershell
+$env:KUBECONFIG="C:\path\to\your\student-kubeconfig.yaml"
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+set KUBECONFIG=C:\path\to\your\student-kubeconfig.yaml
 ```
 
 To view your current context configurations:
@@ -35,8 +49,22 @@ kubectl config set-context --current --namespace=student-ns-01
 
 Confirm that you are in the correct namespace:
 
+**Linux / macOS (Bash):**
+
 ```bash
 kubectl config view --minify | grep namespace
+```
+
+**Windows (PowerShell):**
+
+```powershell
+kubectl config view --minify | Select-String namespace
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+kubectl config view --minify | findstr namespace
 ```
 
 ### 2. Apply the Deployment Manifest

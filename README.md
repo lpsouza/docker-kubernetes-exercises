@@ -49,7 +49,23 @@ To begin any laboratory exercise, navigate to its respective subdirectory and fo
 
 For example, to start Lab 1:
 
+**Linux / macOS (Bash / Zsh):**
+
 ```bash
 cd docker/lab1
 cat README.md
+```
+
+**Windows (PowerShell):**
+
+```powershell
+Set-Location docker/lab1
+Get-Content README.md
+```
+
+**Windows (Command Prompt / CMD):**
+
+```cmd
+cd docker\lab1
+type README.md
 ```
