@@ -6,9 +6,9 @@ This lab guides you through using Helm, the package manager for Kubernetes. You 
 
 Before beginning, ensure that you have:
 
-* Access to a Kubernetes cluster.
-* `kubectl` CLI installed on your system.
-* `helm` CLI installed on your system. For installation instructions, refer to the [Kubernetes Installation Guide](../README.md).
+- Access to a Kubernetes cluster.
+- `kubectl` CLI installed on your system.
+- `helm` CLI installed on your system. For installation instructions, refer to the [Kubernetes Installation Guide](../README.md).
 
 ---
 
@@ -92,10 +92,21 @@ kubectl port-forward svc/prometheus-stack-grafana 8080:80 -n monitoring
 
 Open your browser and navigate to: [http://localhost:8080](http://localhost:8080)
 
-Log in using the default credentials:
+To log in, use the `admin` username and retrieve the password from the Kubernetes secret created by the chart:
 
-* **Username**: `admin`
-* **Password**: `prom-operator`
+**Linux / macOS (Bash):**
+
+```bash
+kubectl get secret --namespace monitoring -l app.kubernetes.io/component=admin-secret -o jsonpath="{.items[0].data.admin-password}" | base64 --decode ; echo
+```
+
+**Windows (PowerShell):**
+
+```powershell
+kubectl get secret --namespace monitoring -l app.kubernetes.io/component=admin-secret -o jsonpath='{.items[0].data.admin-password}' | ForEach-Object { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) }
+```
+
+Use the decoded value as the password.
 
 Once logged in, click on **Dashboards** in the left menu, search for **Kubernetes**, and select a dashboard such as **Kubernetes / Compute Resources / Namespace (Workloads)**. Select the namespace you used in Lab 4 and Lab 5 to see CPU and memory metrics for your Node.js application pods!
 
